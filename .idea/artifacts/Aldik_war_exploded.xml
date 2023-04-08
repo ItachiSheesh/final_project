@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Aldik:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Aldik_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Aldik" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Aldik/web/Web" />
+    </root>
+  </artifact>
+</component>
