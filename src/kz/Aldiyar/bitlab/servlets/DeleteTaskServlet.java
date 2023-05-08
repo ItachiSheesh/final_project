@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kz.Aldiyar.bitlab.db.DBconnection;
 import kz.Aldiyar.bitlab.db.DBmanager;
 
 import java.io.IOException;
@@ -15,7 +16,7 @@ public class DeleteTaskServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int id = Integer.parseInt(request.getParameter("id"));
-        DBmanager.deleteTask(id);
+        DBconnection.deleteTask(id);
         response.sendRedirect("/");
 
     }

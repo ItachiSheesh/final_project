@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kz.Aldiyar.bitlab.db.DBconnection;
 import kz.Aldiyar.bitlab.db.DBmanager;
 
 import java.io.IOException;
@@ -20,15 +21,13 @@ public class SaveTaskServlet extends HttpServlet {
         String date = request.getParameter("task_date");
         String descr = request.getParameter("task_descr");
 
-        Task task = DBmanager.getTask(id);
+        Task task = DBconnection.getTask(id);
         if(task!=null){
             task.setName(name);
             task.setDescription(info);
             task.setDeadlineDate(date);
             task.setDescription1(descr);
-
-            DBmanager.updateTask(task);
-
+            DBconnection.updateTask(task);
             response.sendRedirect("/details?task_id="+id);
         }else{
             response.sendRedirect("/");

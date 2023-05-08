@@ -5,9 +5,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kz.Aldiyar.bitlab.db.DBconnection;
 import kz.Aldiyar.bitlab.db.DBmanager;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.PreparedStatement;
 
 @WebServlet(value = "/add-task")
 
@@ -25,7 +28,7 @@ public class AddTask extends HttpServlet {
         task.setDescription(info);
         task.setDeadlineDate(date);
         task.setDescription1(descr);
-        DBmanager.addTask(task);
+        DBconnection.addTask(task);
 
         response.sendRedirect("/");
     }

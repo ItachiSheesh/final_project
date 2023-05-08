@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kz.Aldiyar.bitlab.db.DBconnection;
 import kz.Aldiyar.bitlab.db.DBmanager;
 
 import java.io.IOException;
@@ -18,7 +19,7 @@ public class DetailsServlet extends HttpServlet {
             id = Integer.parseInt(request.getParameter("task_id"));
         }catch (Exception e){
         }
-        Task task = DBmanager.getTask(id);
+        Task task = DBconnection.getTask(id);
 
         request.setAttribute("zadaniya", task);
         request.getRequestDispatcher("/details.jsp").forward(request, response);

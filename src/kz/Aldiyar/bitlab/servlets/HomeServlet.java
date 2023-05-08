@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kz.Aldiyar.bitlab.db.DBconnection;
 import kz.Aldiyar.bitlab.db.DBmanager;
 
 import java.io.IOException;
@@ -16,7 +17,7 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        ArrayList<Task> tasks = DBmanager.getTasks();
+        ArrayList<Task> tasks = DBconnection.getTasks();
         request.setAttribute("zadaniya", tasks);
         request.getRequestDispatcher("/include.jsp").forward(request, response);
     }
